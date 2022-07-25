@@ -786,7 +786,25 @@
 					</li>
 				</ul> -->
 			</div>
-			<ul class="main-nav__theme filter ng-tns-c37-3">
+			<?php
+				$menu_name = 'Menu 2';
+				// primary-menu
+				$menu_items = wp_get_nav_menu_items($menu_name);
+
+				$menu_list = '	<ul class="main-nav__theme filter ng-tns-c37-3">';
+				foreach ((array) $menu_items as $key => $menu_item) {
+					$title = $menu_item->title;
+					$url = $menu_item->url;
+					$menu_list .= '<li class="main-nav__theme__item ng-tns-c37-3 ng-star-inserted">';
+					$menu_list .= '<a class="ng-tns-c37-3';
+					if (str_ends_with($url, $_SERVER['REQUEST_URI']) && !str_ends_with(home_url('/'), $_SERVER['REQUEST_URI'])) $menu_list .= " active";
+					$menu_list .= '" href="' . $url . '">' . $title . '</a>
+									</li>';
+				}
+				$menu_list .= '</ul>';
+				echo $menu_list;
+				?>
+			<!-- <ul class="main-nav__theme filter ng-tns-c37-3">
 				<li class="main-nav__theme__item ng-tns-c37-3 ng-star-inserted">
 					<a class="ng-tns-c37-3" href="https://mvrdv.nl/themes/1/architecture">
 						Architecture
@@ -842,9 +860,8 @@
 						Interiors
 					</a>
 				</li>
-				<!---->
-			</ul>
-			<app-language-selector class="ng-tns-c37-3">
+			</ul> -->
+			<!-- <app-language-selector class="ng-tns-c37-3">
 				<nav class="language-selector">
 					<ul class="language-selector__list mb-0">
 						<li class="language-selector__list__item is--active ng-star-inserted">
@@ -857,7 +874,6 @@
 								中文
 							</a>
 						</li>
-						<!---->
 						<li class="language-selector__list__item ng-star-inserted">
 							<a class="button button-icon language-selector__button" href="https://mvrdv.com/themes/11/germany">
 								DE
@@ -873,10 +889,10 @@
 								FR
 							</a>
 						</li>
-						<!---->
 					</ul>
 				</nav>
-			</app-language-selector><button class="main-nav__search-button button type--icon-only ng-tns-c37-3" tabindex="0">
+			</app-language-selector> -->
+			<button class="main-nav__search-button button type--icon-only ng-tns-c37-3" tabindex="0">
 				<app-icon class="ng-tns-c37-3"><span class="icon is--icon-search"><svg class="icon-svg">
 							<use xlink:href="/login_files/gfx/svg-sprite.svg#icon-search"></use>
 						</svg></span></app-icon>
