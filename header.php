@@ -733,52 +733,58 @@
 	<nav class="main-nav ng-tns-c37-3">
 		<div class="main-nav__inner ng-tns-c37-3">
 			<div class="main-nav__list ng-tns-c37-3">
-				<ul class="ng-tns-c37-3">
+				<?php
+				$menu_name = 'Primary Menu';
+				// primary-menu
+				$menu_items = wp_get_nav_menu_items($menu_name);
+
+				$menu_list = '	<ul class="ng-tns-c37-3">';
+				foreach ((array) $menu_items as $key => $menu_item) {
+					$title = $menu_item->title;
+					$url = $menu_item->url;
+					$menu_list .= '<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">';
+					$menu_list .= '<a class="ng-tns-c37-3 ng-star-inserted';
+					if (str_ends_with($url, $_SERVER['REQUEST_URI']) && !str_ends_with(home_url('/'), $_SERVER['REQUEST_URI'])) $menu_list .= " active";
+					$menu_list .= '" href="' . $url . '">' . $title . '</a>
+									</li>';
+				}
+				$menu_list .= '</ul>';
+				echo $menu_list;
+				?>
+
+				<!-- <ul class="ng-tns-c37-3">
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
 						<a class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/home">Home</a>
-						<!---->
-						<!---->
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
 						<a class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/projects">Projects</a>
-						<!---->
-						<!---->
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
 						<a class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/about">About</a>
-						<!---->
-						<!---->
+						
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
 						<a class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/updates">News &amp; Events</a>
-						<!---->
-						<!---->
+						
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
-						<!----><a rel="noopener noreferrer" target="_blank" class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/pressroom">
-							Press room </a>
-						<!---->
+						
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
 						<a class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/jobs">Jobs</a>
-						<!---->
-						<!---->
+						
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
 						<a class="ng-tns-c37-3 ng-star-inserted" href="https://mvrdv.nl/contact">Contact</a>
-						<!---->
-						<!---->
+						
 					</li>
 					<li class="main-nav__list__item ng-tns-c37-3 ng-star-inserted">
-						<!----><a rel="noopener noreferrer" target="_blank" class="ng-tns-c37-3 ng-star-inserted" href="http://www.thewhyfactory.com/">
-							t?f </a>
-						<!---->
+						
 					</li>
-					<!---->
 					<li class="main-nav__list__item ng-tns-c37-3">
 						<a class="ng-tns-c37-3" href="https://mvrdv.nl/themes/15/next">NEXT</a>
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 			<ul class="main-nav__theme filter ng-tns-c37-3">
 				<li class="main-nav__theme__item ng-tns-c37-3 ng-star-inserted">
