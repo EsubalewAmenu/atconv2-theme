@@ -713,20 +713,12 @@
 			window.attachEvent("onload", $buo_f);
 		}
 	</script>
-	<h1 class="ng-tns-c37-3 logo-mvrdv fill--light">
-		<a routerlink="/" class="logo-mvrdv__link ng-tns-c37-3" href="https://mvrdv.nl/"><svg width="112" height="37" viewBox="0 0 112 37" class="ng-tns-c37-3">
-				<title class="ng-tns-c37-3">Atcon</title>
-				<g fill-rule="nonzero" class="ng-tns-c37-3">
-					<path d="M16.5,0L13,18.5L10,0H0v37h6V14.9L10.5,37h4l5-22.6V37H26V0H16.5z M41.7,0l-3.4,19.5L34.8,0H28l6.8,37h5.8L48,0H41.7z
-            M105.7,0l-3.4,19.5L98.8,0H92l6.8,37h5.9L112,0H105.7z M65.4,20c2.7-1.4,4.1-4.5,4.1-9.2c0-6.9-3.2-10.4-9.7-10.8H50v37h6.7V21
-          h2.6L62.3,37H70C70,37,65.4,20,65.4,20z M62.3,11.3c0,2.1-1,3.3-3.1,3.6h-2.6V5.6h2.6c2.1,0,3.1,1.2,3.1,3.6V11.3z M78.3,0H72v37
-          h8.3c6.2,0,9.4-3.3,9.7-10V12.1C90,4,86.1,0,78.3,0z M84.2,26.2c0,3.4-1.5,5.1-4.4,5.1h-1.5V5.6h1c3.2,0,4.9,1.7,4.9,5.1
-          C84.2,10.8,84.2,26.2,84.2,26.2z" class="ng-tns-c37-3"></path>
-				</g>
-			</svg>
-			<!---->
+	<h3 class="ng-tns-c37-3 logo-mvrdv fill--light">
+		<a routerlink="/" class="logo-mvrdv__link ng-tns-c37-3" href="<?php echo home_url() ?>">
+			Atcon
 		</a>
-	</h1>
+	</h3>
+
 	<button class="ng-tns-c37-3 main-nav-toggle fill--light">
 		<span class="ng-tns-c37-3">Toggle nav</span>
 	</button>
@@ -787,23 +779,23 @@
 				</ul> -->
 			</div>
 			<?php
-				$menu_name = 'Menu 2';
-				// primary-menu
-				$menu_items = wp_get_nav_menu_items($menu_name);
+			$menu_name = 'Menu 2';
+			// primary-menu
+			$menu_items = wp_get_nav_menu_items($menu_name);
 
-				$menu_list = '	<ul class="main-nav__theme filter ng-tns-c37-3">';
-				foreach ((array) $menu_items as $key => $menu_item) {
-					$title = $menu_item->title;
-					$url = $menu_item->url;
-					$menu_list .= '<li class="main-nav__theme__item ng-tns-c37-3 ng-star-inserted">';
-					$menu_list .= '<a class="ng-tns-c37-3';
-					if (str_ends_with($url, $_SERVER['REQUEST_URI']) && !str_ends_with(home_url('/'), $_SERVER['REQUEST_URI'])) $menu_list .= " active";
-					$menu_list .= '" href="' . $url . '">' . $title . '</a>
+			$menu_list = '	<ul class="main-nav__theme filter ng-tns-c37-3">';
+			foreach ((array) $menu_items as $key => $menu_item) {
+				$title = $menu_item->title;
+				$url = $menu_item->url;
+				$menu_list .= '<li class="main-nav__theme__item ng-tns-c37-3 ng-star-inserted">';
+				$menu_list .= '<a class="ng-tns-c37-3';
+				if (str_ends_with($url, $_SERVER['REQUEST_URI']) && !str_ends_with(home_url('/'), $_SERVER['REQUEST_URI'])) $menu_list .= " active";
+				$menu_list .= '" href="' . $url . '">' . $title . '</a>
 									</li>';
-				}
-				$menu_list .= '</ul>';
-				echo $menu_list;
-				?>
+			}
+			$menu_list .= '</ul>';
+			echo $menu_list;
+			?>
 			<!-- <ul class="main-nav__theme filter ng-tns-c37-3">
 				<li class="main-nav__theme__item ng-tns-c37-3 ng-star-inserted">
 					<a class="ng-tns-c37-3" href="https://mvrdv.nl/themes/1/architecture">
