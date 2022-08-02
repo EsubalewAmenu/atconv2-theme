@@ -5721,7 +5721,7 @@ app-post-teaser-banner {
 .post-teaser-banner__content {
   transform: translateY(-50%);
   width: 50%;
-  opacity: 0;
+  opacity: 1 !important;
   transition: 0.2s ease-in-out;
 }
 .post-teaser-banner__content,
@@ -5744,7 +5744,7 @@ app-post-teaser-banner {
   transition: transform 0.3s 1.4s ease-in-out, opacity 0.3s 0.3s ease-in-out;
   transform-origin: bottom left;
   margin-bottom: 1.25rem;
-  opacity: 0;
+  opacity: 1 !important;
   line-height: 0.9;
   font-size: 12vw;
 }

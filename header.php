@@ -715,7 +715,7 @@
 	</script>
 	<h3 class="ng-tns-c37-3 logo-mvrdv fill--light">
 		<a routerlink="/" class="logo-mvrdv__link ng-tns-c37-3" href="<?php echo home_url() ?>">
-			Atcon
+			At-con
 		</a>
 	</h3>
 
